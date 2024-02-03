@@ -1,0 +1,29 @@
+body {
+    background-color: black;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.news-article {
+    background-color: #f8f8f8;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.news-article h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+.news-article p {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+h1{
+    color: white;
+}

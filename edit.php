@@ -1,95 +1,55 @@
+
 <?php
-session_start();
+$userId = $_GET['id'];
+include_once '../repository/userRepository.php';
 
-if (!isset($_SESSION['session_token']) || !isset($_SESSION['user_email'])) {
-    // Redirect to the login page or display an error message
-    header("Location: ../login.php");
-    exit();
-} ?>
+
+
+$userRepository = new UserRepository();
+
+$user  = $userRepository->getUserById($userId);
+
+
+?>
+
+
+
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-    <title>Create Form</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: black;
-        }
-
-        .container {
-            width: 300px;
-            padding: 16px;
-            background-color: white;
-            margin: 0 auto;
-            margin-top: 100px;
-            border: 1px solid black;
-            border-radius: 4px;
-        }
-
-        input[type=text],input[type=file],
-        textarea {
-            width: 100%;
-            padding: 12px 20px;
-            margin: 8px 0;
-            display: inline-block;
-            border: 1px solid #ccc;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: orange;
-            color: black;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        button:hover {
-            opacity: 0.8;
-        }
-
-        a {
-            color: black;
-            text-decoration: none;
-        }
-
-        a:hover {
-            color: orange;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
 <body>
-    <div class="container">
-        <?php 
-            require_once '../../models/article.php';
+    <h3>Edit User</h3>
+    <form action="" method="post">
+        <input type="text" name="id"  value="<?=$user['Id']?>" readonly> <br> <br>
+        <input type="text" name="name"  value="<?=$user['Name']?>"> <br> <br>
+        <input type="text" name="surname"  value="<?=$user['Surname']?>"> <br> <br>
+        <input type="text" name="email"  value="<?=$user['Email']?>"> <br> <br>
+        <input type="text" name="username"  value="<?=$user['Username']?>"> <br> <br>
+        <input type="text" name="password"  value="<?=$user['Password']?>"> <br> <br>
 
-
-            $id = $_GET['id'];
-            
-            $articleModel = new Article();
-
-            $article = $articleModel->getArticle($id);
-
-            if($article){?>
-                 <form name="createForm" method="post" action="../../actions/edit_action.php" enctype="multipart/form-data">
-                    <input type="text" name="id"  value="<?php echo $article['id']?>" style="display:none;"> <br> <br>
-                    <label for="title"><b>Title</b></label>
-                    <input type="text" placeholder="Enter title" id="title" name="title" value="<?php echo $article["title"]; ?>" required>
-                    <label for="title"><b>Description</b></label>
-                    <textarea placeholder="Description" id="description" name="description"><?php echo $article["description"]; ?></textarea>
-                    <label for="image"><b>Image</b></label>
-                    <input type="file" name="image" accept=".jpg,.jpeg" >
-                    <button type="submit">Save</button>
-                </form>
-            <?php 
-            }
-        ?> 
-       
-    </div>
-
+        <input type="submit" name="editBtn" value="save"> <br> <br>
+    </form>
 </body>
 </html>
+
+<?php 
+
+if(isset($_POST['editBtn'])){
+    $id = $user['Id'];
+    $name = $_POST['name'];
+    $surname = $_POST['surname'];
+    $email = $_POST['email'];
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    $userRepository->updateUser($id,$name,$surname,$email,$username,$password);
+    header("location:dashboard.php");
+}
+
+
+?>
