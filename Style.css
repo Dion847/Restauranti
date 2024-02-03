@@ -1,0 +1,139 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    border-bottom-style: solid;
+    border-color: grey;
+}
+.headeri{
+    display: flex;
+    font-size: x-large;
+    font-weight: bold;
+    align-items: center;
+    margin-left: 25px;
+   
+}
+h1{
+    font-size: 50px;
+}
+.name :hover{
+    cursor: pointer;
+}
+ul{
+    width: 30%;
+    font-size: larger;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 25px;
+}
+ul li:hover {
+    font-weight: bold;
+    cursor: pointer;
+    color: orangered;
+}
+main{
+    background-color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.text{
+    margin-bottom: 10%;
+}
+.bgfoto{
+    width: 100%;
+    height: 700px;
+    background-image: url("burgeri1.jpg");
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 60px;
+}
+.fotografit{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.rubrika{
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 420px;
+}
+.img{
+    width: 100%;
+    height: 75%;
+    background-size: 100% 100%;
+}
+.description{
+    width: 345px;
+    display: flex;
+    justify-content: space-between;
+    justify-content: center;
+    font-weight: bold;
+    font-size: larger;
+    border-style: outset;
+    color: black;
+    background-color: white;
+}
+footer{
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    border-top-style: solid;
+    border-color: grey;
+}
+.f{
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 70%;
+    color: orangered;
+    font-size: larger;
+    font-weight: bold;
+}
+.footermain{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+}
+.footerleft{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+    justify-content: center;
+    font-size: 15px;
+}
+.footerright{
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    align-items: flex-end;
+}
+.footercenter{
+    align-items: flex-start;
+}
+.fotofooter{
+    display: flex;
+    justify-content: space-evenly;
+}
